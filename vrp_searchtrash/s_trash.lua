@@ -27,7 +27,7 @@ function vRPtrash.searchTrash()
     local money = math.random(configS.moneyMin, configS.moneyMax/10)
     local lotsOfMoney = math.random(configS.moneyMin, configS.moneyMax)
     vRPclient.notify(target, {configS.searchNotify})
-    Wait(searchDuration)
+    Wait(configS.searchDuration)
     if chance == 996 or chance == 997 or chance == 998 then
         vRP.giveMoney({user_id, money})
         vRPclient.notify(target, {configS.foundLessMoney, money .. "$."})
