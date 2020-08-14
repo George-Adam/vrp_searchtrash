@@ -18,7 +18,7 @@ local trashCans = {
 configC = {
     searchDuration = 15000,
     searchText1 = "~o~Apasa ",
-    searchText2 = "~o~pentru a cauta in gunoi"
+    searchText2 = " ~o~pentru a cauta in gunoi"
 }
 
 Citizen.CreateThread(function()
