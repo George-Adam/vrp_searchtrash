@@ -57,7 +57,7 @@ Citizen.CreateThread(function()
         local plyCoords = GetEntityCoords(ply, 0)
         if trashCoords ~= nil then
             if (GetDistanceBetweenCoords(plyCoords["x"], plyCoords["y"], plyCoords["z"], trashCoords["x"], trashCoords["y"], trashCoords["z"] < 1)) and (not IsPedInAnyVehicle(ply)) then
-                DrawText3D(trashCoords["x"], trashCoords["y"], trashCoords["z"]+1.5, searchText1 .. "~r~E" .. searchText2, 150)
+                DrawText3D(trashCoords["x"], trashCoords["y"], trashCoords["z"]+1.5, configC.searchText1 .. "~r~E" .. configC.searchText2, 150)
                 if (GetDistanceBetweenCoords(plyCoords["x"], plyCoords["y"], plyCoords["z"], trashCoords["x"], trashCoords["y"], trashCoords["z"] < 0.5)) then
                     if IsControlPressed(1, 51) then
                         vRPStrash.searchTrash()
