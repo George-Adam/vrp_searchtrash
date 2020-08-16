@@ -14,10 +14,12 @@ configS = {
     foundLessMoney = "~g~Ai gasit ",
     foundMoney = "~g~Ai ce manca azi, ai gasit ",
     foundRats = "~r~Te-a muscat un sobolan de mana!",
+    foundRatsButRanAway = "~y~Ai gasit un sobolan, dar a fugit", -- If enableRats = false, it will show this when you would normally find a rat
     tryAgain = "~y~N-ai gasit nimic, incerca din nou!",
     moneyMin = 100,
     moneyMax = 1500,
-    searchDuration = 15000 -- Needs to be the same as in c_trash.lua if you want it timed correctly
+    searchDuration = 15000, -- Needs to be the same as in c_trash.lua if you want it timed correctly
+    enableRats = true
 }
 
 function vRPtrash.searchTrash()
@@ -41,8 +43,12 @@ function vRPtrash.searchTrash()
     elseif chance >= 960 and chance <= 995 then
         vRP.giveInventoryItem({user_id, 'sandwich', 1, true})
     elseif chance >= 400 and chance <= 699 then
-        vRPclient.notify(target, {configS.foundRats})
-        vRPclient.varyHealth(target,{-20}) 
+        if configS.enableRats == true then
+            vRPclient.notify(target, {configS.foundRats})
+            vRPclient.varyHealth(target,{-20})
+        else
+            vRPclient.nofity(target, {configS.foundRatsButRanAway})
+        end
     else
         vRPclient.notify(target, {configS.tryAgain})
         --TriggerClientEvent('vRPmisc:trashNotify', source, '~r~Nu ai gasit nimic, mai cauta...')
